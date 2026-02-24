@@ -1,0 +1,121 @@
+/* App-specific styles */
+
+/* Smooth section transitions */
+section {
+  position: relative;
+}
+
+/* Custom button hover effects */
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+/* Card hover enhancements */
+.service-card,
+.stat-card {
+  will-change: transform, box-shadow;
+}
+
+/* Image loading optimization */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Focus states for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #00c9b7;
+  outline-offset: 2px;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(0, 201, 183, 0.3);
+  color: inherit;
+}
+
+/* Prevent text selection on interactive elements */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Glass morphism enhancement */
+.glass-card {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Gradient text fallback */
+@supports not (background-clip: text) {
+  .gradient-text {
+    background: none;
+    color: #1a2b5c;
+  }
+}
+
+/* Animation performance */
+.animate-float,
+.animate-pulse-glow,
+.animate-slide-up,
+.animate-fade-in {
+  will-change: transform, opacity;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .animate-float,
+  .animate-pulse-glow {
+    animation: none;
+  }
+}
+
+/* Mobile touch improvements */
+@media (hover: none) {
+  .hover-lift:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .service-card:hover,
+  .stat-card:hover {
+    transform: none;
+    box-shadow: 0 8px 32px rgba(26, 43, 92, 0.12);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .glass-card {
+    background: white;
+    border: 2px solid #1a2b5c;
+  }
+}
+
+/* Print styles */
+@media print {
+  nav,
+  .scroll-to-top,
+  canvas {
+    display: none !important;
+  }
+  
+  section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
